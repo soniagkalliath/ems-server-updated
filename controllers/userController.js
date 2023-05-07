@@ -28,3 +28,16 @@ exports.userregister = async (req,res)=>{
         console.log("catch block error")
     }  
 }
+
+// uget all users
+exports.getallusers = async (req, res) => {
+
+    try {
+        const usersdata = await users.find()
+        res.status(200).json({
+            usersdata
+        })
+    } catch (error) {
+        res.status(401).json(error)
+    }
+}

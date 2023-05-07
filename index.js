@@ -8,6 +8,8 @@ const app = express()
 const PORT = process.env.PORT || 4000
 app.use(cors())
 app.use(express.json())
+//express.static() function is a built-in middleware function in Express. It serves static files and is based on serve-static.
+app.use("/uploads",express.static("./uploads"))
 app.use(router)
 app.get('/',(req,res)=>{
 res.send('Server started')

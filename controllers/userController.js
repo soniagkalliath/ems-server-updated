@@ -41,3 +41,17 @@ exports.getallusers = async (req, res) => {
         res.status(401).json(error)
     }
 }
+
+//get aparticualr user
+exports.viewUser = async (req,res)=>{
+    const {id}= req.params
+
+    try{
+        const userDetails = await users.findOne({_id:id})
+        res.status(200).json({
+            userDetails
+        })
+    }catch (error) {
+        res.status(401).json(error)
+    }
+}

@@ -7,5 +7,6 @@ const upload = require('../multerconfig/storageConfig')
 //routes
 router.post('/user/register',upload.single('user_profile'),controller.userregister)
 router.get('/user/getallusers',controller.getallusers)
+router.get('/user/view/:id',controller.viewUser)
 
 module.exports = router

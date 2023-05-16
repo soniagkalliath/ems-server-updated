@@ -32,8 +32,14 @@ exports.userregister = async (req,res)=>{
 // uget all users
 exports.getallusers = async (req, res) => {
 
+    const search = req.query.search
+
+    const query = {
+        fname:{$regex:search,$options:"i"}
+    }
+
     try {
-        const usersdata = await users.find()
+        const usersdata = await users.find(query)
         res.status(200).json({
             usersdata
         })
